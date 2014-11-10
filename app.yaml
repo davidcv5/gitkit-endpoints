@@ -1,0 +1,19 @@
+application: wt-map
+version: gitkit
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+- url: /_ah/spi/.*
+  script: gitkit_api.application
+- url: /
+  static_files: index.html
+  upload: index.html
+
+libraries:
+- name: pycrypto
+  version: latest
+- name: endpoints
+  version: 1.0
+
