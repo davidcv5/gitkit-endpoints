@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Google Identity Kit + Google Cloud Endpoints</title>
     <style rel="stylesheet">
         body {
@@ -19,12 +20,12 @@
         var config = {
             apiKey: 'AIzaSyAWA859i85x9joJXFD3A7ttilT2Vpox1mw',
             signInSuccessUrl: '/',
-            idps: ["google", "yahoo"],
+            idps: ["google", "facebook", "twitter", "yahoo"],
             oobActionUrl: '/',
-            siteName: 'this site'
+            siteName: 'this site',
 
             // Optional - Show sign in page in a popup window, default false
-            //popupMode: false,
+            popupMode: true
 
             // Optional - URL of site ToS (linked and req. consent for signup)
             // tosUrl: 'http://example.com/terms_of_service',

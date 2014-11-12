@@ -1,0 +1,56 @@
+<html>
+<head>
+    <!-- Begin custom code copied from Developer Console -->
+    <!-- Note: this is just an example. The html you download from Developer Console will be tailored for your site -->
+    <script type="text/javascript"
+            src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+    <link type=text/css rel=stylesheet
+          href="//www.gstatic.com/authtoolkit/css/gitkit.css"/>
+    <script type=text/javascript>
+        window.google.identitytoolkit.signInButton(
+                '#navbar', // accepts any CSS selector
+                {
+                    widgetUrl: "http://localhost:8080/callback",
+                    signOutUrl: "/",
+                    // Optional - Begin the sign-in flow in a popup window
+                    popupMode: true
+
+                    // Optional - Begin the sign-in flow immediately on page load.
+                    //            Note that if this is true, popupMode param is ignored
+                    //loginFirst: true,
+
+                    // Optional - Cookie name (default: gtoken)
+                    //            NOTE: Also needs to be added to config of ‘widget
+                    //                  page’. See below
+                    //cookieName: ‘example_cookie’,
+                }
+        );
+    </script>
+    <!-- End custom code copied from Developer Console -->
+</head>
+<body>
+<!-- Begin sign in button widget -->
+<div id="navbar"></div>
+<!-- End sign in button widget -->
+<button onclick="authed()">Authed Call</button>
+
+<script>
+    function init() {
+        console.log('calling init');
+        var ROOT = 'http://localhost:3000/_ah/api';
+        gapi.client.load('gitkit', 'v1', function () {
+            //doSomethingAfterLoading();
+            console.log('gitkit loaded');
+        }, ROOT);
+    }
+    function authed() {
+        gapi.client.gitkit.greetings.authed().execute(function (resp) {
+            console.log(resp);
+        });
+    }
+</script>
+<script src="https://apis.google.com/js/client.js?onload=init">
+</script>
+
+</body>
+</html>

@@ -8,8 +8,11 @@ handlers:
 - url: /_ah/spi/.*
   script: gitkit_api.application
 - url: /
-  static_files: index.html
-  upload: index.html
+  static_files: static/index.html
+  upload: static\/index.html
+- url: /callback
+  static_files: static/login.html
+  upload: static/login.html
 
 libraries:
 - name: pycrypto
